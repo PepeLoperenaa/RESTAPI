@@ -29,7 +29,7 @@ public class PersistenceAmazonMovieConfiguration {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setPersistenceUnitName("amazon");
         em.setDataSource(amazonMovieDataSource());
-        em.setPackagesToScan(new String[]{"com.restful.api.domain.amazon"});
+        em.setPackagesToScan("com.restful.api.domain.amazon");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

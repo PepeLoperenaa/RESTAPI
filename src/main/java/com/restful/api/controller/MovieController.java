@@ -27,7 +27,6 @@ import javax.xml.validation.Validator;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 //@CrossOrigin(origins = "http://localhost:80")
@@ -142,9 +141,9 @@ public class MovieController {
     @GetMapping(value = "/piechart", produces = {"application/json"})
     public Map<String, Integer> countAllFilms() {
         Map<String, Integer> map = new HashMap<>();
-        map.put("Amazon",amazonMovieRepository.findAll().size());
-        map.put("Disney",disneyMovieRepository.findAll().size());
-        map.put("Netflix",netflixMovieRepository.findAll().size());
+        map.put("Amazon", amazonMovieRepository.findAll().size());
+        map.put("Disney", disneyMovieRepository.findAll().size());
+        map.put("Netflix", netflixMovieRepository.findAll().size());
 
         return map;
     }
@@ -469,10 +468,8 @@ public class MovieController {
         return true;
     }
 
-    private boolean movieValidatorXML(String data, Resource r)
-    {
-        try
-        {
+    private boolean movieValidatorXML(String data, Resource r) {
+        try {
             InputStream xml = new ByteArrayInputStream(data.getBytes());
             InputStream xsd = r.getInputStream();
             SchemaFactory factory =
@@ -481,9 +478,7 @@ public class MovieController {
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(xml));
             return true;
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             return false;
         }
     }
