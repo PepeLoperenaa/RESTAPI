@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/product.schema.json",
+  "$title": "Disney",
+  "$description": "The Schema for the Disney object",
+  "type": "object",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "release": {
+          "type": "integer",
+          "exclusiveMaximum": 2021,
+          "exclusiveMinimum": 1950
+        },
+        "actors": {
+          "type": "string"
+        },
+        "director": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number",
+          "exclusiveMinimum": 0.0,
+          "exclusiveMaximum": 10.0
+        },
+        "genre": {
+          "type": "string",
+          "enum": [
+            "Action",
+            "Horror",
+            "Family",
+            "Comedy",
+            "Drama",
+            "Fantasy",
+            "Romance"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Movie",
+            "Serie",
+            "N/D"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "release",
+        "actors",
+        "director",
+        "rating",
+        "genre"
+      ]
+    }
+  ]
+}

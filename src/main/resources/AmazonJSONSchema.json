@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/product.schema.json",
+  "$title": "Amazon",
+  "$description": "The Schema for the Amazon object",
+  "type": "object",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "release": {
+          "type": "integer",
+          "exclusiveMaximum": 2021,
+          "exclusiveMinimum": 1950
+        },
+        "genre": {
+          "type": "string",
+          "enum": [
+            "Action",
+            "Horror",
+            "Family",
+            "Comedy",
+            "Drama",
+            "Fantasy",
+            "Romance"
+          ]
+        },
+        "rating": {
+          "type": "number",
+          "exclusiveMinimum": 0.0,
+          "exclusiveMaximum": 10.0
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Movie",
+            "Serie",
+            "N/D"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "release",
+        "rating",
+        "genre"
+      ]
+    }
+  ]
+}
