@@ -45,6 +45,12 @@ public class MovieController {
     @Value("classpath:NetflixXSDSchema.xsd")
     private Resource xsdSchemaNetflix;
 
+    @Value("classpath:AmazonXSDSchema.xsd")
+    private Resource xsdSchemaAmazon;
+
+    @Value("classpath:DisneyXSDSchema.xsd")
+    private Resource xsdSchemaDisney;
+
     @Autowired
     private AmazonMovieRepository amazonMovieRepository;
 
