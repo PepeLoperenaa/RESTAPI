@@ -296,11 +296,11 @@ public class MovieController {
     public ResponseEntity<Message> insertNetflix(@RequestBody String movie) {
 
         //
-        boolean okSchemaXSD = movieValidatorXML(movie, xsdSchemaNetflix);
+        //boolean okSchemaXSD = movieValidatorXML(movie, xsdSchemaNetflix);
         //
 
         boolean okSchema = movieValidator(movie, jsonSchemaNetflix);
-        if (okSchema) {
+        //if (okSchema) {
 
             NetflixMovie m = null;
             ObjectMapper objectMapper = new ObjectMapper();
@@ -318,9 +318,9 @@ public class MovieController {
                 return new ResponseEntity<>(new Message("OK"), HttpStatus.OK);
             else
                 return new ResponseEntity<>(new Message("Could not save movie"), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        //}
 
-        return new ResponseEntity<>(new Message("Validation error"), HttpStatus.INTERNAL_SERVER_ERROR);
+        //return new ResponseEntity<>(new Message("Validation error"), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 
@@ -474,6 +474,7 @@ public class MovieController {
         return true;
     }
 
+    /*
     private boolean movieValidatorXML(String data, Resource r) {
         try {
             InputStream xml = new ByteArrayInputStream(data.getBytes());
@@ -488,5 +489,6 @@ public class MovieController {
             return false;
         }
     }
+     */
 
 }
