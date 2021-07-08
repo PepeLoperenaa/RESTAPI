@@ -1,6 +1,9 @@
 package com.restful.api.domain;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass //works as parent schema for the films.
 public class Movie {

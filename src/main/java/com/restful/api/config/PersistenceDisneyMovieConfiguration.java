@@ -28,7 +28,7 @@ public class PersistenceDisneyMovieConfiguration {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setPersistenceUnitName("netflix");
         em.setDataSource(disneyMovieDataSource());
-        em.setPackagesToScan(new String[]{"com.restful.api.domain.disney"});
+        em.setPackagesToScan("com.restful.api.domain.disney");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

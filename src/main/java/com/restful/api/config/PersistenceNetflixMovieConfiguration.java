@@ -2,7 +2,6 @@ package com.restful.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -28,7 +27,7 @@ public class PersistenceNetflixMovieConfiguration {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setPersistenceUnitName("netflix");
         em.setDataSource(netflixMovieDataSource());
-        em.setPackagesToScan(new String[]{"com.restful.api.domain.netflix"});
+        em.setPackagesToScan("com.restful.api.domain.netflix");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
