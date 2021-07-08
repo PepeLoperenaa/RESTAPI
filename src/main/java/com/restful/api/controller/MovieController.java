@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 @RequestMapping("movies")
 public class MovieController {
 
-    @Value("classpath:AmazonJSONSchema.json") //schemas for validation.
+    @Value("classpath:AmazonJSONSchema.json") //schemas for validation in JSON.
     private Resource jsonSchemaAmazon;
     @Value("classpath:JSONSchemaNetflix.json")
     private Resource jsonSchemaNetflix;
@@ -43,8 +43,13 @@ public class MovieController {
     private Resource jsonSchemaDisney;
 
     //
-    @Value("classpath:NetflixXSDSchema.xsd")
+    @Value("classpath:AmazonXSDSchema.xsd") //xsd schema validation for Amazon.
+    private Resource xsdSchemaAmazon;
+    @Value("classpath:NetflixXSDSchema.xsd") //xsd schema validation for netflix.
     private Resource xsdSchemaNetflix;
+    @Value("classpath:DisneyXSDSchema.xsd") //xsd schema validation for Disney.
+    private Resource xsdSchemaDisney;
+    //
 
     @Autowired
     private AmazonMovieRepository amazonMovieRepository;
@@ -291,7 +296,7 @@ public class MovieController {
     public ResponseEntity<Message> insertNetflix(@RequestBody String movie) {
 
         //
-        boolean okSchemaXSD = movieValidatorXML(movie, xsdSchemaNetflix);
+        //boolean okSchemaXSD = movieValidatorXML(movie, xsdSchemaNetflix);
         //
 
         boolean okSchema = movieValidator(movie, jsonSchemaNetflix);
@@ -469,6 +474,7 @@ public class MovieController {
         return true;
     }
 
+    /*
     private boolean movieValidatorXML(String data, Resource r)
     {
         try
@@ -487,5 +493,6 @@ public class MovieController {
             return false;
         }
     }
+    */
 
 }
