@@ -74,6 +74,10 @@ public class MovieController {
         return all netflix movies without the visualisation
      */
 
+    /**
+     * Creating a Bar chart with most known genres for amazon movies
+     * @return Return in JSON
+     */
     @GetMapping(value = "/amazon/histogram", produces = {"application/json"})
     public Map<String, Long> histogramGenresAmazon() {
         List<AmazonMovie> movies = amazonMovieRepository.findAll();
@@ -97,7 +101,10 @@ public class MovieController {
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
-
+    /**
+     * Creating a Bar chart with most known genres for Disney movies
+     * @return Return in JSON
+     */
     @GetMapping(value = "/disney/histogram", produces = {"application/json"})
     public Map<String, Long> histogramGenresDisney() {
         List<DisneyMovie> movies = disneyMovieRepository.findAll();
@@ -121,6 +128,10 @@ public class MovieController {
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
+    /**
+     * Creating a Bar chart with most known genres for Netflix movies
+     * @return Return in JSON
+     */
     @GetMapping(value = "/netflix/histogram", produces = {"application/json"})
     public Map<String, Long> histogramGenresNetflix() {
         List<NetflixMovie> movies = netflixMovieRepository.findAll();
@@ -144,6 +155,10 @@ public class MovieController {
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
+    /**
+     * A pie charts by all of the movies in all of the datasets.
+     * @return
+     */
     @GetMapping(value = "/piechart", produces = {"application/json"})
     public Map<String, Integer> countAllFilms() {
         Map<String, Integer> map = new HashMap<>();
